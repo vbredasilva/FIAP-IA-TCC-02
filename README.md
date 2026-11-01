@@ -14,7 +14,7 @@ Otimização dos modelos de diagnóstico da Fase 1 com **algoritmos genéticos**
 
 - **Guia passo a passo (VS Code / Windows): [GUIA_EXECUCAO.md](GUIA_EXECUCAO.md)**
 - Relatório técnico: [RELATORIO_TECNICO.md](RELATORIO_TECNICO.md)
-- Vídeo de demonstração: *(informar o link aqui)*
+- Vídeo de demonstração: https://www.youtube.com/watch?v=DQrM-L-gHNE
 - Repositório: https://github.com/vbredasilva/FIAP-IA-TCC-02
 
 ## Visão geral

@@ -54,21 +54,7 @@ ProjetoTechChallenge2/
 
 ## Arquitetura
 
-```mermaid
-flowchart LR
-    CSV[(dados/dados.csv)] --> NB1["diagnosticos_algoritmo_genetico.ipynb<br/>EDA · baseline · 3 experimentos AG<br/>comparação · escolha do modelo"]
-    MOD["modelos.py<br/>features · classes · pipelines"] --> NB1
-    AG["algoritmo_genetico.py<br/>torneio · crossover · mutação · elitismo"] --> NB1
-    NB1 --> PKL[["modelo_pipeline_genetico.pkl<br/>StandardScaler + LinearSVC"]]
-    NB1 --> RES[(resultados/<br/>gráficos · JSON · CSV)]
-    PKL --> API["main.py — FastAPI<br/>POST /predict · POST /explicar<br/>/health/* · /metrics · logs"]
-    TXT[/Texto sintético do exame/] --> LLM["assistente_llm.py<br/>+ assistente_laudo_medico.ipynb"]
-    LLM -- "1. extração JSON" --> OAI((OpenAI<br/>gpt-4.1-mini))
-    LLM -- "2. valores validados (Pydantic)" --> API
-    API -- "3. classe 0/1 + rótulo" --> LLM
-    LLM -- "4. explicação com limitações" --> OAI
-    LLM --> EXP[/Explicação em português/]
-```
+![Arquitetura do sistema](resultados/arquitetura_sistema.png)
 
 ## Algoritmo genético
 

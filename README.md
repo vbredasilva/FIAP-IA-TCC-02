@@ -15,7 +15,7 @@ Otimização dos modelos de diagnóstico da Fase 1 com **algoritmos genéticos**
 - **Guia passo a passo (VS Code / Windows): [GUIA_EXECUCAO.md](GUIA_EXECUCAO.md)**
 - Relatório técnico: [RELATORIO_TECNICO.md](RELATORIO_TECNICO.md)
 - Vídeo de demonstração: *(informar o link aqui)*
-- Repositório: *(informar o link aqui)*
+- Repositório: https://github.com/vbredasilva/FIAP-IA-TCC-02
 
 ## Visão geral
 
@@ -49,7 +49,7 @@ ProjetoTechChallenge2/
 ├── resultados/                            # gráficos, tabelas e JSON gerados pelos notebooks
 ├── tests/                                 # pytest (AG, modelo, API, LLM simulada, LLM real opcional)
 ├── requirements.txt · pytest.ini · .env.example · .gitignore
-└── README.md · GUIA_EXECUCAO.md · RELATORIO_TECNICO.md · RELATORIO_REVISAO.md
+└── README.md · GUIA_EXECUCAO.md · RELATORIO_TECNICO.md
 ```
 
 ## Arquitetura

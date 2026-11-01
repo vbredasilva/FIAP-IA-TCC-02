@@ -1,0 +1,13 @@
+# Credenciais locais (a chave real fica somente no .env)
+.env
+
+# Ambiente virtual local criado pelo GUIA_EXECUCAO.md
+.venv/
+
+venv/
+env/
+
+__pycache__/
+.ipynb_checkpoints/
+.pytest_cache/
+*.pyc

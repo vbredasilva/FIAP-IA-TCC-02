@@ -1,0 +1,129 @@
+{
+  "data_execucao": "2026-10-27T01:35:46",
+  "modelo_llm": "gpt-4.1-mini",
+  "avaliacoes": [
+    {
+      "cenario": "1. Completo - perfil benigno",
+      "esperado": "sucesso",
+      "obtido": "sucesso",
+      "comportamento_correto": true,
+      "texto": "Laudo sintético para teste. Paciente fictício A. Medidas do exame: pontos côncavos (média) 0,021; pontos côncavos (pior valor) 0,072; perímetro (pior valor) 84,5; raio (pior valor) 13,2.",
+      "saida": {
+        "status": "sucesso",
+        "parametros": {
+          "concave_points_mean": 0.021,
+          "concave_points_worst": 0.072,
+          "perimeter_worst": 84.5,
+          "radius_worst": 13.2
+        },
+        "retorno_api": {
+          "output": "0",
+          "label": "Benigno",
+          "model_file": "modelo_pipeline_genetico.pkl",
+          "processing_time_ms": 1.75,
+          "request_id": "aceb0628-9e2d-49d9-9c99-0641c91f6c66"
+        },
+        "explicacao": "**Dados analisados**  \nForam utilizados os seguintes valores de entrada: pontos côncavos (média) de 0.021, pontos côncavos (pior valor) de 0.072, perímetro (pior valor) de 84.5 e raio (pior valor) de 13.2.\n\n**Resultado do modelo**  \nO modelo retornou a classe 0, que corresponde à classificação \"Benigno\".\n\n**Como interpretar**  \nO resultado indica que, com base nos valores fornecidos, o modelo classificou o caso como benigno. O desempenho do modelo no conjunto de teste apresentou acurácia de 95,91%, precisão de 93,85%, recall de 95,31% e F1 de 94,57%.\n\n**Limitações**  \nEste é um protótipo educacional treinado com dados públicos do Breast Cancer Wisconsin, utilizando apenas quatro características específicas. Portanto, não substitui uma avaliação clínica completa.\n\n**Próximos passos**  \nO resultado não constitui diagnóstico definitivo e deve ser avaliado e confirmado por profissional de saúde habilitado para garantir a correta interpretação e conduta."
+      },
+      "checklist": {
+        "fidelidade_rotulo": true,
+        "fidelidade_valores": true,
+        "sem_rotulo_oposto_afirmado": true,
+        "estrutura": true,
+        "sem_numeros_inventados": true,
+        "sem_tratamento": true,
+        "aviso_medico": true,
+        "tamanho_adequado": true
+      }
+    },
+    {
+      "cenario": "2. Completo - perfil maligno",
+      "esperado": "sucesso",
+      "obtido": "sucesso",
+      "comportamento_correto": true,
+      "texto": "Exame sintético B: concave points mean = 0.121, concave points worst = 0.245, o pior perímetro registrado foi 165.3 e o pior raio foi 24.8.",
+      "saida": {
+        "status": "sucesso",
+        "parametros": {
+          "concave_points_mean": 0.121,
+          "concave_points_worst": 0.245,
+          "perimeter_worst": 165.3,
+          "radius_worst": 24.8
+        },
+        "retorno_api": {
+          "output": "1",
+          "label": "Maligno",
+          "model_file": "modelo_pipeline_genetico.pkl",
+          "processing_time_ms": 1.33,
+          "request_id": "961a7323-efcd-4763-a388-534e5cff36cb"
+        },
+        "explicacao": "**Dados analisados**  \nForam utilizados quatro valores de entrada: pontos côncavos (média) de 0.121, pontos côncavos (pior valor) de 0.245, perímetro (pior valor) de 165.3 e raio (pior valor) de 24.8.\n\n**Resultado do modelo**  \nO modelo retornou a classe \"Maligno\".\n\n**Como interpretar**  \nO modelo classificou os dados fornecidos como pertencentes à classe \"Maligno\", indicando que, segundo o algoritmo, as características analisadas correspondem a essa categoria.\n\n**Limitações**  \nEste é um protótipo educacional treinado com dados públicos do conjunto Breast Cancer Wisconsin, utilizando apenas quatro características específicas. Portanto, não substitui uma avaliação clínica completa.\n\n**Próximos passos**  \nO resultado apresentado não constitui diagnóstico. É necessária avaliação e confirmação por profissional de saúde habilitado para interpretação e decisão clínica adequada."
+      },
+      "checklist": {
+        "fidelidade_rotulo": true,
+        "fidelidade_valores": true,
+        "sem_rotulo_oposto_afirmado": true,
+        "estrutura": true,
+        "sem_numeros_inventados": true,
+        "sem_tratamento": true,
+        "aviso_medico": true,
+        "tamanho_adequado": true
+      }
+    },
+    {
+      "cenario": "3. Incompleto - falta o raio",
+      "esperado": "revisao_necessaria",
+      "obtido": "revisao_necessaria",
+      "comportamento_correto": true,
+      "texto": "Exame sintético C: pontos côncavos médios 0,05; pontos côncavos no pior valor 0,14; perímetro pior 108,4. O raio não foi medido.",
+      "saida": {
+        "status": "revisao_necessaria",
+        "mensagem": "Complete os parâmetros antes da predição.",
+        "parametros_extraidos": {
+          "concave_points_mean": 0.05,
+          "concave_points_worst": 0.14,
+          "perimeter_worst": 108.4,
+          "radius_worst": null
+        },
+        "parametros_ausentes": [
+          "radius_worst"
+        ]
+      }
+    },
+    {
+      "cenario": "4. Inválido - valor negativo",
+      "esperado": "entrada_invalida",
+      "obtido": "entrada_invalida",
+      "comportamento_correto": true,
+      "texto": "Exame sintético D: pontos côncavos (média) -0,03; pontos côncavos (pior valor) 0,10; perímetro (pior valor) 95,0; raio (pior valor) 14,0.",
+      "saida": {
+        "status": "entrada_invalida",
+        "mensagem": "Há valores fora do domínio permitido; a predição não foi feita.",
+        "detalhe": "Valores extraídos inválidos: [{'type': 'greater_than_equal', 'loc': ('concave_points_mean',), 'msg': 'Input should be greater than or equal to 0', 'input': -0.03, 'ctx': {'ge': 0.0}, 'url': 'https://errors.pydantic.dev/2.14/v/greater_than_equal'}]"
+      }
+    },
+    {
+      "cenario": "5. Sem dados numéricos",
+      "esperado": "revisao_necessaria",
+      "obtido": "revisao_necessaria",
+      "comportamento_correto": true,
+      "texto": "Paciente sintético E relata desconforto. Exame de imagem ainda não realizado.",
+      "saida": {
+        "status": "revisao_necessaria",
+        "mensagem": "Complete os parâmetros antes da predição.",
+        "parametros_extraidos": {
+          "concave_points_mean": null,
+          "concave_points_worst": null,
+          "perimeter_worst": null,
+          "radius_worst": null
+        },
+        "parametros_ausentes": [
+          "concave_points_mean",
+          "concave_points_worst",
+          "perimeter_worst",
+          "radius_worst"
+        ]
+      }
+    }
+  ]
+}

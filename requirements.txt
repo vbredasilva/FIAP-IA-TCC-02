@@ -1,0 +1,29 @@
+# Versões validadas com Python 3.11 (Windows 11, VS Code) em 27/10/2026.
+
+# API
+fastapi==0.162.0
+uvicorn==0.54.0
+pydantic==2.14.1
+prometheus-client==0.26.0
+
+# Dados e Machine Learning (o .pkl exportado depende destas versões)
+numpy==2.4.6
+pandas==3.1.0
+scikit-learn==1.9.1
+
+# Gráficos e notebooks (VS Code + extensão Jupyter)
+matplotlib==3.11.2
+seaborn==0.13.2
+plotly==7.1.0
+nbformat==5.11.1
+missingno==0.5.2
+ipykernel==7.4.0
+
+# Integração LLM
+openai==3.39.0
+python-dotenv==1.2.4
+requests==2.34.2
+
+# Testes
+pytest==9.1.1
+httpx==0.28.1

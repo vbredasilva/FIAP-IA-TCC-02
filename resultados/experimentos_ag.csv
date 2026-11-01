@@ -1,0 +1,10 @@
+modelo,experimento,recall_cv,f1_cv,precision_cv,accuracy_cv,avaliacoes,hiperparametros
+KNN,Conservador,0.8979,0.8843,0.8766,0.912,16,"{'n_neighbors': 1, 'weights': 'distance', 'p': 2}"
+KNN,Equilibrado,0.891,0.9212,0.9592,0.9446,20,"{'n_neighbors': 9, 'weights': 'uniform', 'p': 1}"
+KNN,Exploratorio,0.8979,0.8843,0.8766,0.912,42,"{'n_neighbors': 1, 'weights': 'uniform', 'p': 2}"
+SVM,Conservador,0.9453,0.9202,0.9032,0.9372,12,"{'C': 1, 'class_weight': 'balanced', 'max_iter': 2000}"
+SVM,Equilibrado,0.9453,0.9202,0.9032,0.9372,20,"{'C': 1, 'class_weight': 'balanced', 'max_iter': 2000}"
+SVM,Exploratorio,0.9453,0.9202,0.9032,0.9372,30,"{'C': 1, 'class_weight': 'balanced', 'max_iter': 2000}"
+Random Forest,Conservador,0.9179,0.9069,0.9036,0.9296,31,"{'n_estimators': 500, 'max_depth': 3, 'min_samples_split': 10, 'min_samples_leaf': 4, 'max_features': 'sqrt', 'class_weight': 'balanced'}"
+Random Forest,Equilibrado,0.9246,0.9222,0.9262,0.9421,65,"{'n_estimators': 500, 'max_depth': 16, 'min_samples_split': 2, 'min_samples_leaf': 1, 'max_features': 'log2', 'class_weight': 'balanced'}"
+Random Forest,Exploratorio,0.9246,0.9166,0.9154,0.9371,154,"{'n_estimators': 100, 'max_depth': 20, 'min_samples_split': 2, 'min_samples_leaf': 1, 'max_features': 'sqrt', 'class_weight': 'balanced'}"
